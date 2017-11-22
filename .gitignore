@@ -1,0 +1,5 @@
+*.pyc
+*~
+__pycache__
+p3env
+.DS_STORE

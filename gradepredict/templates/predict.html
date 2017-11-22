@@ -1,0 +1,43 @@
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <link href="{% static "css/style.css" %}" rel="stylesheet" type="text/css">
+    <meta charset="utf-8">
+    <title>{% block title %}Predict your next test grade{% endblock %}</title>
+</head>
+<body>
+    <div id="cascontainer">
+    <div id="container">
+      
+      The prediction system will first consider the uploaded CSV file, if it's not present, it will then consider the text input
+
+      <form method=post action="" enctype="multipart/form-data">{% csrf_token %}
+        <table style="width:100%">
+          
+          <tr>
+            {% for f in form %}
+                <th><label>{{ f.label }}</label></th>
+                <th>{{ f }}</th>
+            {% endfor %}
+          </tr>
+          <tr>
+            <th></th><th><input type="submit" value="Predict"></th><th></th><th><input type="submit" value="Predict"></th>
+          </tr>
+       </table>
+     </form>
+    </div></div>
+
+    <div id="cascontainer">
+      <div id="container">
+        <p>
+            {% if result != None %}
+                Your predicted score for the next test is:<br>
+                <center><h1>{{ result }}</h1></center>
+            {% else %}
+                Please input your csv data or upload your csv file.
+            {% endif %}
+        </p>
+      </div>
+    </div>
+</body>
+</html>
