@@ -163,4 +163,4 @@ def compute(training_X, training_y, userTestVals):
     # predict test score
     scorePrediction = NN.forward(userTestVals)
     score = scorePrediction[0] * 100
-    return str.format('%.2f%%' % score)
+    return str.format('%.1f%%' % score)
