@@ -3,7 +3,7 @@ import csv
 import numpy as np
 from scipy import optimize
 
-def compute(csvstr):
+def compute(training_X, training_y, userTestVals):
     class Neural_Network(object):
         def __init__(self, Lambda=0):        
             #Define Hyperparameters
@@ -140,23 +140,23 @@ def compute(csvstr):
     #   main driver
     #  
 
-    # pull data from csv file
-    training_X = [0,0]
-    training_y = [0]
-    userTestVals = []
+     # pull data from csv file
+#     training_X = [0,0]
+#     training_y = [0]
+#     userTestVals = []
 
-    with open(csvstr, 'r') as grades:
-        reader = csv.reader(grades)
-        for row in reader:
-            if row[2] == '':
-                userTestVals = [float(row[0]), float(row[1])]
-            else:   
-                newrow = [float(row[0]), float(row[1])]
-                training_X = np.vstack([training_X, newrow])
-                training_y = np.vstack([training_y, float(row[2])])
+#     with open(csvstr, 'r') as grades:
+#         reader = csv.reader(grades)
+#         for row in reader:
+#             if row[2] == '':
+#                 userTestVals = [float(row[0]), float(row[1])]
+#             else:   
+#                 newrow = [float(row[0]), float(row[1])]
+#                 training_X = np.vstack([training_X, newrow])
+#                 training_y = np.vstack([training_y, float(row[2])])
                 
-    training_X = np.delete(training_X, 0, 0)
-    training_y = np.delete(training_y, 0, 0)
+#     training_X = np.delete(training_X, 0, 0)
+#     training_y = np.delete(training_y, 0, 0)
 
     # Data for error testing during training
     test_X = np.array(([4, 5.5], [4.5,1], [9,2.5], [6, 2]), dtype=float)
